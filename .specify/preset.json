@@ -1,0 +1,66 @@
+{
+  "name": "spec-kit-dream-sri-preset",
+  "version": "1.1.0",
+  "description": "Extended Spec-Driven Development preset featuring pre-plan scenario simulation (Dreaming) and Self-Reflective Inquiry (SRI) before planning and implementation.",
+  "constitution": ".specify/memory/constitution.md",
+  "workflow": [
+    {
+      "step": 1,
+      "name": "specify",
+      "command": "/speckit-specify",
+      "output_artifact": ".specify/spec.md",
+      "description": "Initial business specification and requirement gathering."
+    },
+    {
+      "step": 2,
+      "name": "dream",
+      "command": "/speckit-dream",
+      "input_artifact": ".specify/spec.md",
+      "output_artifact": ".specify/dream_report.md",
+      "description": "Divergent simulation of edge cases, load, network failures, and security vectors."
+    },
+    {
+      "step": 3,
+      "name": "sri",
+      "command": "/speckit-sri",
+      "input_artifacts": [".specify/spec.md", ".specify/dream_report.md"],
+      "output_artifact": ".specify/sri_audit.md",
+      "description": "Convergent self-critique, gap detection, and constitutional compliance audit."
+    },
+    {
+      "step": 4,
+      "name": "plan",
+      "command": "/speckit-plan",
+      "input_artifacts": [".specify/spec.md", ".specify/sri_audit.md"],
+      "output_artifact": ".specify/plan.md",
+      "description": "Technical architecture design incorporating mitigations from Dream and SRI phases."
+    },
+    {
+      "step": 5,
+      "name": "tasks",
+      "command": "/speckit-tasks",
+      "input_artifact": ".specify/plan.md",
+      "output_artifact": ".specify/tasks.md",
+      "description": "Actionable task breakdown mapped to the identified risk matrix."
+    },
+    {
+      "step": 6,
+      "name": "implement",
+      "command": "/speckit-implement",
+      "input_artifact": ".specify/tasks.md",
+      "description": "Deterministic code generation with zero unreflected assumptions."
+    },
+    {
+      "step": 7,
+      "name": "converge",
+      "command": "/speckit-converge",
+      "input_artifact": ".specify/tasks.md",
+      "description": "Final audit and drift analysis to ensure code aligns perfectly with specifications."
+    }
+  ],
+  "rules": {
+    "require_sri_approval": true,
+    "block_implement_on_open_gaps": true,
+    "enforce_offline_first": true
+  }
+}
